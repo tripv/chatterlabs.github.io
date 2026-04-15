@@ -16,26 +16,69 @@
         font-display: swap;
       }
 
+      html, body { height: 100%; }
+
       body{
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 56px 16px;
+        background: #0b0d10;
+        color: #f3f4f6;
         font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        max-width: 760px;
-        margin: 12vh auto;
-        padding: 0 16px;
-        line-height: 1.4;
       }
 
-      .brand, .tagline{
-        font-family: "Chatter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      main{
+        width: 100%;
+        max-width: 860px;
+        text-align: center;
       }
 
-      .brand{ font-size: 48px; margin: 0 0 12px; }
-      .tagline{ font-size: 18px; margin: 0; opacity: 0.85; }
+      .brand{ font-family: "Chatter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      .tagline{ font-family: "Chatter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+      h1.brand{
+        font-size: clamp(40px, 6vw, 72px);
+        letter-spacing: 0.02em;
+        margin: 0 0 10px;
+      }
+
+      p.tagline{
+        font-size: clamp(16px, 2.2vw, 20px);
+        line-height: 1.55;
+        margin: 0;
+        opacity: 0.9;
+      }
+
+      .spacer{ height: 18px; }
+
+      h2.brand{
+        font-size: clamp(22px, 3vw, 28px);
+        margin: 18px 0 10px;
+        opacity: 0.95;
+      }
+
+      a{ color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+      a:hover{ opacity: 0.85; }
     </style>
   </head>
 
   <body>
-    <h1 class="brand">Chatter Labs</h1>
-    <p class="tagline">Chatter Labs builds AI models that bring the past to life and the future into focus.</p>
+    <main>
+      <h1 class="brand">Chatter Labs</h1>
+      <p class="tagline">Chatter Labs builds AI models that bring the past to life and the future into focus.</p>
+
+      <div class="spacer"></div>
+
+      <p class="tagline">Get in touch: <a href="mailto:hello@chatter-labs.org">hello@chatter-labs.org</a></p>
+
+      <div class="spacer"></div>
+
+      <h2 class="brand">Our Models</h2>
+      <p class="tagline">🎩 Mr. Chatterbox (demo) — Mr. Chatterbox is a historical language model trained from scratch on 28,000 Victorian-era texts from the British Library.
+        Try it out on <a href="https://huggingface.co/spaces/tventurella/mr_chatterbox" target="_blank" rel="noopener noreferrer">Hugging Face</a>.
+      </p>
+    </main>
   </body>
 </html>
-
