@@ -1,0 +1,35 @@
+<!DOCTYPE html>                                                                                                                                                                                                   
+  <html lang="en">
+  <head>                                                                                                                                                                                                            
+  <meta charset="utf-8">                                    
+  <title>Chatterbox — Usage Analysis Figures</title>
+  <style>                                                                                                                                                                                                           
+    body { font-family: system-ui, -apple-system, Segoe UI, Arial; max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: .3rem; }                                                                                                                                                    
+    h2 { margin-top: 2.5rem; color: #444; }                                                                                                                                                                         
+    ul { list-style: none; padding: 0; }      
+    li { margin: .4rem 0; padding: .4rem .6rem; background: #f7f7f7; border-radius: 4px; }                                                                                                                          
+    a { color: #0366d6; text-decoration: none; }                                                                                                                                                                    
+    a:hover { text-decoration: underline; }                                                                                                                                                                         
+    .png { font-size: .85em; color: #666; margin-left: .5rem; }                                                                                                                                                     
+  </style>                                                                                                                                                                                                          
+  </head>                                                                                                                                                                                                           
+  <body>                                                                                                                                                                                                            
+  <h1>Chatterbox — Usage Analysis Figures</h1>                                                                                                                                                                      
+  <p>Interactive Plotly visuals from clustering + intent labelling of real user sessions.
+  Click an entry below for the interactive HTML; "PNG" links the static render.</p>                                                                                                                                 
+                                                            
+  <h2>Topic structure</h2>                                                                                                                                                                                          
+  <ul>                                                                                                                                                                                                              
+    <li><a href="viz_topic_map_opener.html">Topic map — openers</a> <a class="png" href="viz_topic_map_opener.png">PNG</a></li>                                                                                     
+    <li><a href="viz_topic_map_session.html">Topic map — sessions</a> <a class="png" href="viz_topic_map_session.png">PNG</a></li>
+    <li><a href="viz_topic_hierarchy_opener.html">Topic hierarchy — openers</a> <a class="png" href="viz_topic_hierarchy_opener.png">PNG</a></li>
+    <li><a href="viz_topic_hierarchy_session.html">Topic hierarchy — sessions</a> <a class="png" href="viz_topic_hierarchy_session.png">PNG</a></li>
+    <li><a href="viz_documents_opener.html">Document scatter — openers</a> <a class="png" href="viz_documents_opener.png">PNG</a></li>
+    <li><a href="viz_documents_session.html">Document scatter — sessions</a> <a class="png" href="viz_documents_session.png">PNG</a></li>
+  </ul>                                                                                                                                                                                                        
+                                                                                                                                                                                                                    
+  <p style="color:#666; font-size:.85em; margin-top:3rem;">Generated by <code>visualize_clusters.py</code> from canonical session data.                                                                             
+  Interactive plots use Plotly.js loaded via CDN — view source for the underlying data.</p>                                                                                                                         
+  </body>                                                                                                                                                                                                           
+  </html>
