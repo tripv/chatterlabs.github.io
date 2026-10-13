@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mr. Chatterbox — Chatter Labs</title>
+<meta name="description" content="Mr. Chatterbox: a family of historical language models trained from scratch on 19th-century British text.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chatter-labs.org/mrchatterbox/">
+<meta property="og:title" content="Mr. Chatterbox">
+<meta property="og:description" content="A family of historical language models trained from scratch on 19th-century British text.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mr. Chatterbox">
+<meta name="twitter:description" content="A family of historical language models trained from scratch on 19th-century British text.">
+<link rel="preload" href="/assets/fonts/chat_font.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: "Chatter";
+    src: url("/assets/fonts/chat_font.woff2") format("woff2");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  :root {
+    --bg: #fffcef;
+    --ink: #131313;
+    --muted: #5f5a52;
+    --rule: #e4dcc8;
+    --card: #fffefa;
+    --ours: #f6ead0;
+    --head: #2f2a25;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 17px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 20px 96px; }
+  .brand { font-family: "Chatter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-weight: 400; }
+  nav { font-size: 14px; color: var(--muted); margin-bottom: 36px; }
+  nav a { color: inherit; }
+  h1 { font-size: clamp(40px, 7vw, 68px); line-height: 1.05; margin: 0 0 14px; letter-spacing: 0.01em; }
+  .lede { font-size: clamp(17px, 2.2vw, 20px); margin: 0 0 22px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 8px; }
+  .links a {
+    display: inline-block; padding: 7px 14px; border: 1px solid var(--ink); border-radius: 999px;
+    text-decoration: none; font-size: 14px;
+  }
+  .links a:hover { background: var(--ink); color: var(--bg); opacity: 1; }
+  h2 { font-size: clamp(26px, 3.6vw, 34px); margin: 60px 0 12px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  h3 { font-size: 18px; margin: 30px 0 6px; }
+  p { margin: 0 0 14px; }
+  ul { padding-left: 1.2em; margin: 0 0 14px; }
+  li { margin: 0 0 8px; }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { opacity: 0.8; }
+  .note { color: var(--muted); font-size: 14px; }
+  .table-wrap { overflow-x: auto; margin: 14px 0 18px; border: 1px solid var(--rule); border-radius: 10px; background: var(--card); }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+  th, td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { background: var(--head); color: #fffcef; font-weight: 600; font-size: 13px; white-space: normal; line-height: 1.3; vertical-align: bottom; }
+  tbody tr:last-child td { border-bottom: none; }
+  tr.ours td { background: var(--ours); font-weight: 700; }
+  tr.total td { font-weight: 700; }
+  .bar { display: inline-block; height: 9px; background: #b9a57c; border-radius: 2px; vertical-align: middle; margin-right: 8px; }
+  td.share { min-width: 170px; }
+  footer { margin-top: 72px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--muted); }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    th, td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav><a href="/">Chatter Labs</a> / Mr. Chatterbox</nav>
+
+<header>
+  <h1 class="brand">🎩 Mr. Chatterbox</h1>
+  <p class="lede">We introduce the Mr. Chatterbox model family, a family of historical language models trained on 19th-century British text.
+  The family consists of four fully-trained base models — Mr.Chatterbox-345M, Mr.Chatterbox-500M, Mr.Chatterbox-1.2B and Mr.Chatterbox-2.7B — as well as Mr.Chatterbox-2.7B-Chat, a chat-tuned version of 2.7B trained on fine-tuning data drawn from the corpus.
+  We are also releasing the fine-tuning dataset, Mr.Chatterbox-SFT, and the training code on GitHub.</p>
+  <div class="links">
+    <a href="https://www.estragon.news/building-a-better-chatterbox" target="_blank" rel="noopener noreferrer">Read about it</a>
+    <a href="https://huggingface.co/tventurella/Mr.Chatterbox-2.7B-Chat" target="_blank" rel="noopener noreferrer">Chat model</a>
+    <a href="https://huggingface.co/tventurella/Mr.Chatterbox-2.7B" target="_blank" rel="noopener noreferrer">Base models</a>
+    <a href="https://huggingface.co/datasets/tventurella/Mr.Chatterbox-SFT" target="_blank" rel="noopener noreferrer">Fine-tuning data</a>
+    <a href="https://github.com/tripv/mr.chatterbox" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
+  </div>
+</header>
+
+<section id="models">
+  <h2 class="brand">Models</h2>
+  <p>The family consists of four fully-trained base models, each trained to Chinchilla-optimality for its size.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>model</th><th>parameters</th><th>training tokens</th><th>weights</th></tr></thead>
+      <tbody>
+        <tr><td>345M</td><td>350M</td><td>7.0B</td><td><a href="https://huggingface.co/tventurella/Mr.Chatterbox-345M" target="_blank" rel="noopener noreferrer">Mr.Chatterbox-345M</a></td></tr>
+        <tr><td>500M</td><td>490M</td><td>9.8B</td><td><a href="https://huggingface.co/tventurella/Mr.Chatterbox-500M" target="_blank" rel="noopener noreferrer">Mr.Chatterbox-500M</a></td></tr>
+        <tr><td>1.2B</td><td>1.18B</td><td>23.6B</td><td><a href="https://huggingface.co/tventurella/Mr.Chatterbox-1.2B" target="_blank" rel="noopener noreferrer">Mr.Chatterbox-1.2B</a></td></tr>
+        <tr><td>2.7B</td><td>2.71B</td><td>54.1B</td><td><a href="https://huggingface.co/tventurella/Mr.Chatterbox-2.7B" target="_blank" rel="noopener noreferrer">Mr.Chatterbox-2.7B</a></td></tr>
+        <tr><td>2.7B-Chat</td><td>2.71B</td><td>—</td><td><a href="https://huggingface.co/tventurella/Mr.Chatterbox-2.7B-Chat" target="_blank" rel="noopener noreferrer">Mr.Chatterbox-2.7B-Chat</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="corpus">
+  <h2 class="brand">Pretraining corpus</h2>
+
+  <h3>Corpus composition by decade</h3>
+  <p>Share of training material by publication decade, measured by character volume. The corpus tilts towards the late Victorian period.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>decade</th><th>share</th><th>tokens</th><th>documents</th></tr></thead>
+      <tbody>
+        <tr><td>1800s</td><td class="share"><span class="bar" style="width:6px"></span>1.1%</td><td>0.6B</td><td>4,908</td></tr>
+        <tr><td>1810s</td><td class="share"><span class="bar" style="width:7px"></span>1.4%</td><td>0.8B</td><td>6,203</td></tr>
+        <tr><td>1820s</td><td class="share"><span class="bar" style="width:10px"></span>1.9%</td><td>1.1B</td><td>7,653</td></tr>
+        <tr><td>1830s</td><td class="share"><span class="bar" style="width:26px"></span>5.2%</td><td>2.8B</td><td>24,575</td></tr>
+        <tr><td>1840s</td><td class="share"><span class="bar" style="width:67px"></span>13.3%</td><td>7.3B</td><td>50,765</td></tr>
+        <tr><td>1850s</td><td class="share"><span class="bar" style="width:69px"></span>13.7%</td><td>7.5B</td><td>55,402</td></tr>
+        <tr><td>1860s</td><td class="share"><span class="bar" style="width:64px"></span>12.8%</td><td>7.0B</td><td>57,775</td></tr>
+        <tr><td>1870s</td><td class="share"><span class="bar" style="width:72px"></span>14.4%</td><td>7.9B</td><td>65,382</td></tr>
+        <tr><td>1880s</td><td class="share"><span class="bar" style="width:82px"></span>16.4%</td><td>9.0B</td><td>86,114</td></tr>
+        <tr><td>1890s</td><td class="share"><span class="bar" style="width:99px"></span>19.7%</td><td>10.8B</td><td>107,064</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">218.4B characters (≈ 54.7B tokens) across 465,841 documents. Shares are by character volume; tokens are converted at the corpus-wide rate of characters per token. The 0.7% of documents dated outside 1800–1899 are excluded.</p>
+
+  <h3>Sources</h3>
+  <p>The pretraining corpus draws on text from these sources, restricted to 1800–1899:</p>
+  <ul>
+    <li>HathiTrust</li>
+    <li>Institutional Books 1.0</li>
+    <li>British Library (blbooks)</li>
+    <li>Project Gutenberg</li>
+    <li>Internet Archive (National Library of Scotland, UK Medical Heritage Library, Wellcome Collection, European libraries)</li>
+    <li>Encyclopaedia Britannica</li>
+    <li>NCSE</li>
+    <li>Old Bailey Proceedings</li>
+    <li>Hansard</li>
+    <li>House of Commons “Blue Books”</li>
+  </ul>
+  <p class="note"><i>Institutional Books</i> provided by the Institutional Data Initiative with source material contributed by Harvard Library, available at <a href="https://institutional.org/institutional-books" target="_blank" rel="noopener noreferrer">institutional.org/institutional-books</a>.</p>
+
+  <h3>Held-out perplexity</h3>
+  <p>All four models were scored on the same 2,000 sequences of 2,048 tokens each.</p>
+  <ul>
+    <li><b>Sample:</b> drawn uniformly at random (seed 42) from the 141,185 packed sequences in the held-out split. Its source mix matches the corpus: 66.7% HathiTrust, 8.4% Wellcome, 4.3% British Library, and so on.</li>
+    <li><b>Scoring:</b> fp32 weights, scored one sequence at a time. Loss on the [year][source][ocr] prefix tokens is masked, as in training.</li>
+    <li><b>Confidence intervals:</b> 95%, from the per-sequence loss.</li>
+    <li><b>Bits per byte (BPB):</b> total loss (in bits) divided by the UTF-8 bytes of the predicted text. Unlike perplexity, it doesn’t depend on the tokenizer.</li>
+  </ul>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>size</th><th>mean loss (nats)</th><th>perplexity</th><th>95% CI</th><th>BPB</th></tr></thead>
+      <tbody>
+        <tr><td>345M</td><td>2.965 ± 0.011</td><td>19.39</td><td>18.99 – 19.80</td><td>1.117</td></tr>
+        <tr><td>500M</td><td>2.846 ± 0.010</td><td>17.22</td><td>16.87 – 17.57</td><td>1.072</td></tr>
+        <tr><td>1.2B</td><td>2.632 ± 0.010</td><td>13.91</td><td>13.63 – 14.19</td><td>0.992</td></tr>
+        <tr><td>2.7B</td><td>2.488 ± 0.012</td><td>12.04</td><td>11.76 – 12.33</td><td>0.937</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="benchmarks">
+  <h2 class="brand">Benchmarks</h2>
+  <p>Mr.Chatterbox 2.7B-Base and Mr.Chatterbox 2.7B-Chat were both evaluated by us using the
+  <a href="https://github.com/Historical-AI-Lab/Chronologic-EN" target="_blank" rel="noopener noreferrer">Chronologic</a> benchmark for historical language models, released by AICHR (Artificial Intelligence for Cultural and Historical Research).
+  Chronologic tests whether a model can answer as a writer of a given date would. It has 866 questions drawn from texts published between 1831 and 1930.
+  We scored the released 2.7B base model and the 2.7B chat model with the benchmark’s own likelihood scorer. Only the model loader was adapted, for our tokenizer and chat format.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>model</th><th>overall Brier ↓ [95% CI]</th><th>cloze acc.</th><th>constrained generation acc.</th><th>knowledge &amp; inference acc.</th></tr></thead>
+      <tbody>
+        <tr><td>talkie-1930-13b-base</td><td>0.1574 [0.1551, 0.1596]</td><td>39.5%</td><td>24.9%</td><td>44.0%</td></tr>
+        <tr class="ours"><td>Mr. Chatterbox 2.7B (base)</td><td>0.1588 [0.1567, 0.1610]</td><td>34.4%</td><td>27.1%</td><td>44.4%</td></tr>
+        <tr><td>talkie-1930-13b-it</td><td>0.1593 [0.1569, 0.1616]</td><td>37.4%</td><td>23.8%</td><td>25.1%</td></tr>
+        <tr><td>Qwen 7B ft (ckpt-3500)</td><td>0.1601 [0.1579, 0.1621]</td><td>36.2%</td><td>14.9%</td><td>34.4%</td></tr>
+        <tr class="ours"><td>Mr. Chatterbox 2.7B-Chat</td><td>0.1603 [0.1581, 0.1626]</td><td>35.3%</td><td>27.4%</td><td>23.8%</td></tr>
+        <tr><td>Gemma 4 31B base</td><td>0.1606 [0.1585, 0.1626]</td><td>23.0%</td><td>13.3%</td><td>40.6%</td></tr>
+        <tr><td>Qwen 72B</td><td>0.1607 [0.1586, 0.1627]</td><td>10.8%</td><td>8.8%</td><td>38.0%</td></tr>
+        <tr><td>Qwen 3.5 35B-A3B base</td><td>0.1623 [0.1603, 0.1643]</td><td>12.6%</td><td>8.0%</td><td>37.1%</td></tr>
+        <tr><td>Talkie web base</td><td>0.1627 [0.1606, 0.1646]</td><td>18.2%</td><td>13.6%</td><td>34.1%</td></tr>
+        <tr><td>Qwen 7B</td><td>0.1628 [0.1608, 0.1648]</td><td>8.6%</td><td>9.5%</td><td>37.0%</td></tr>
+        <tr><td>GPT-2 (124M, our run)</td><td>0.1635 [0.1615, 0.1656]</td><td>16.0%</td><td>16.8%</td><td>34.2%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Rows in bold are ours. The other rows are the benchmark authors’ published results. Brier is calibrated, as on the leaderboard (median of 1,000 bootstrap draws); lower is better.</p>
+  <ul>
+    <li>The 2.7B base model is second on the leaderboard, behind talkie-1930-13b-base. Their 95% intervals overlap.</li>
+    <li>Our corpus ends in 1899, but 38% of the eval questions (329) come from texts published 1900–1930. Talkie 1930 was trained on text up to 1930. Even so, overall accuracy barely moves across the line (35.2% before 1900, 34.3% after), because most questions test period language and reasoning rather than knowledge of a particular text. The cutoff does show on the questions that need post-1899 knowledge: the base model answers none of the 16 post-1900 knowledge questions correctly.</li>
+    <li>Dialogue fine-tuning roughly halves knowledge-and-inference accuracy (44.4% → 23.8%). Talkie shows a similar drop from base to instruction-tuned (44.0% → 25.1%). In our case the loss is almost entirely on the abstention questions, where the right answer is to decline. The base model declines on 56 of 62, the chat model on 7, because Mr. Chatterbox is trained to stay in character and answer. On the knowledge questions themselves, the chat model does slightly better than the base (35 of 94 correct, against 27).</li>
+    <li>Overlap with our corpus: at least 19 of the benchmark’s 213 source books (9%) are also in our pretraining corpus, matched by library barcode. Other editions were not checked, so this is a lower bound.</li>
+  </ul>
+</section>
+
+<section id="compute">
+  <h2 class="brand">Cost and compute</h2>
+  <ul>
+    <li><b>Cost of the released models:</b> about $5,300 in GPU time, plus about $210 for storage and data transfer.</li>
+    <li><b>Fine-tuning:</b> a 2.7B fine-tuning run takes about 1.3 GPU-hours on one B200.</li>
+  </ul>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>model</th><th>wall-clock</th><th>B200 GPU-hours</th></tr></thead>
+      <tbody>
+        <tr><td>345M</td><td>~5.1 h <span class="note">(includes instance setup and loading the corpus)</span></td><td>~41</td></tr>
+        <tr><td>500M</td><td>~6.4 h</td><td>~51</td></tr>
+        <tr><td>1.2B</td><td>~20.5 h</td><td>~164</td></tr>
+        <tr><td>2.7B</td><td>~74 h</td><td>~592</td></tr>
+        <tr class="total"><td>total</td><td>106.2 h</td><td>~850</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="acknowledgements">
+  <h2 class="brand">Acknowledgements</h2>
+  <p>Thank you to:</p>
+  <ul>
+    <li>The Cosmos Institute for their generous support — and a shoutout to Matt Mandel, Kush Kansagra, and all of the “cosmonauts” who helped make it happen.</li>
+    <li>The Talkie team — David Duvenaud, Alec Radford, and especially Nick Levine — for answering questions, making introductions, and providing inspiration.</li>
+    <li>Ted Underwood and Teddy Roland at UIUC for their insight, intelligence, and data.</li>
+    <li>Tim Buckingham for some early conversations.</li>
+    <li>Lauren Klein at Emory University for reproducing the Mr. Chatterbox pipeline, turning it into a semester-long class (!!), and inviting me to guest lecture.</li>
+    <li>Ethan Mollick and Simon Willison for bringing attention to the project.</li>
+    <li>Joe Weisenthal for an important early endorsement.</li>
+    <li>Bogo Giertler for his enthusiasm.</li>
+    <li>Jeff Carpenter and James Lahsher for their advice and conversations.</li>
+    <li>Finally, and most importantly, I want to thank my wife, Emily, for putting up with my endless requests to test out the model, and my son, Robin, for keeping me awake during those 2AM training runs. Thanks to you all!</li>
+  </ul>
+</section>
+
+<footer>
+  <p>These models learned from 19th-century text and reproduce its attitudes, including its views on race, empire, class, gender and medicine. Treat their output as a historical artifact, not reliable information or advice.</p>
+  <p>Code: MIT. Model weights: CC BY-NC-SA 4.0. · <a href="/">Chatter Labs</a> · <a href="mailto:trip@chatter-labs.org">trip@chatter-labs.org</a></p>
+</footer>
+
+</div>
+</body>
+</html>

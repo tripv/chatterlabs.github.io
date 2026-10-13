@@ -61,6 +61,14 @@
 
       a{ color: inherit; text-decoration: underline; text-underline-offset: 3px; }
       a:hover{ opacity: 0.85; }
+
+      p.buttons{ display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 14px 0 0; }
+      a.button{
+        display: inline-block; padding: 8px 18px; border: 1px solid #131313; border-radius: 999px;
+        text-decoration: none; font-size: 15px;
+        font-family: "Chatter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      }
+      a.button:hover{ background: #131313; color: #fffcef; opacity: 1; }
     </style>
   </head>
 
@@ -76,8 +84,14 @@
       <div class="spacer"></div>
 
       <h2 class="brand">Our Projects</h2>
-      <p class="tagline">🎩 Mr. Chatterbox — Mr. Chatterbox is a historical language model trained from scratch on 28,000 Victorian-era texts from the British Library.
-        Chat with it on <a href="https://huggingface.co/spaces/tventurella/mr_chatterbox" target="_blank" rel="noopener noreferrer">Huggingface</a>.
+      <p class="tagline">🎩 <a href="/mrchatterbox/">Mr. Chatterbox</a> — a family of historical language models trained from scratch on 19th-century British text:
+        four base models from 345M to 2.7B parameters, and a 2.7B chat model.
+        Download the <a href="https://huggingface.co/tventurella/Mr.Chatterbox-2.7B" target="_blank" rel="noopener noreferrer">base model</a>
+        or the <a href="https://huggingface.co/tventurella/Mr.Chatterbox-2.7B-Chat" target="_blank" rel="noopener noreferrer">chat model</a>.
+      </p>
+      <p class="buttons">
+        <a class="button" href="https://www.estragon.news/building-a-better-chatterbox" target="_blank" rel="noopener noreferrer">Read about it</a>
+        <a class="button" href="/mrchatterbox/">Models &amp; results</a>
       </p>
       <p>With generous support from the Cosmos Institute</p>
     </main>
