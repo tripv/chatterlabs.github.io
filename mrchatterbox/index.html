@@ -67,6 +67,7 @@
   tr.total td { font-weight: 700; }
   .bar { display: inline-block; height: 9px; background: #b9a57c; border-radius: 2px; vertical-align: middle; margin-right: 8px; }
   td.share { min-width: 170px; }
+  .wrap-first td:first-child { white-space: normal; min-width: 14em; }
   footer { margin-top: 72px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--muted); }
   @media (max-width: 560px) {
     body { font-size: 16px; }
@@ -169,6 +170,52 @@
       </tbody>
     </table>
   </div>
+</section>
+
+<section id="sft">
+  <h2 class="brand">Supervised fine-tuning corpus</h2>
+  <p>Mr.Chatterbox-2.7B-Chat was fine-tuned on <b>19,800 conversations</b> containing <b>46,719 assistant replies</b>; 7,016 of the conversations are multi-turn.
+  <b>Almost every reply is real 19th-century text.</b> In 56.6% of turns, both the question and the reply were taken from period text (catechisms, novel dialogue, play dialogue, etc.). Most of the remaining user turns were back-translated: written to fit a real Victorian passage.
+  The data is released as <a href="https://huggingface.co/datasets/tventurella/Mr.Chatterbox-SFT" target="_blank" rel="noopener noreferrer">Mr.Chatterbox-SFT</a>, and the methods that built it are documented, with code, in the <a href="https://github.com/tripv/mr.chatterbox/tree/main/sft_pipeline" target="_blank" rel="noopener noreferrer">GitHub repository</a>.</p>
+
+  <h3>The replies</h3>
+  <div class="table-wrap wrap-first">
+    <table>
+      <thead><tr><th>reply type</th><th>replies</th><th>share</th></tr></thead>
+      <tbody>
+        <tr><td>Period text, verbatim apart from light clean-up</td><td>45,422</td><td>97.2%</td></tr>
+        <tr><td>Period text with a small edit (a name or fact substituted)</td><td>671</td><td>1.4%</td></tr>
+        <tr><td>Written by Mr. Chatterbox itself (safety and race fine-tuning rounds)</td><td>334</td><td>0.7%</td></tr>
+        <tr><td>Two period passages joined</td><td>290</td><td>0.6%</td></tr>
+        <tr><td>Written by the project</td><td>2</td><td>0.0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Most replies come from HathiTrust (41%) and Project Gutenberg (36%), with the rest from catechism and question books held as scans (10%), the Internet Archive (5%), Hansard, NCSE, the Wellcome Collection, the British Library and others.
+  1,359 replies come from text published after 1899; they are flagged in the data.</p>
+
+  <h3>What the conversations cover</h3>
+  <div class="table-wrap wrap-first">
+    <table>
+      <thead><tr><th>category</th><th>conversations</th><th>share</th></tr></thead>
+      <tbody>
+        <tr><td>Facts and opinions</td><td>7,224</td><td>36.5%</td></tr>
+        <tr><td>Behaviour (greetings, abuse, jailbreaks, questions about the bot)</td><td>4,599</td><td>23.2%</td></tr>
+        <tr><td>Instructional (advice, descriptions, letters, poems, speeches)</td><td>3,036</td><td>15.3%</td></tr>
+        <tr><td>Multi-turn conversations</td><td>2,416</td><td>12.2%</td></tr>
+        <tr><td>Topic shifts and keeping track of people</td><td>1,503</td><td>7.6%</td></tr>
+        <tr><td>Wit and reasoning</td><td>1,022</td><td>5.2%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Privacy, content and licence</h3>
+  <ul>
+    <li><b>Real visitor prompts:</b> many prompts were typed by visitors to the Mr. Chatterbox chatbot, who were not told their words might be published. Short or stock prompts (“Tell me a joke”, “Good evening, sir”) are kept verbatim; every other visitor prompt is replaced by a stand-in that does the same job but carries no identifying detail, and real names are swapped for invented ones. These prompts are therefore not identical to the ones the model was trained on.</li>
+    <li><b>Removed:</b> 138 conversations containing text from <i>Institutional Books 1.0</i>, whose terms forbid redistribution, and one conversation whose prompts could not be rewritten safely. The released text is the clean version, not the copy with simulated OCR noise the model was also trained on.</li>
+    <li><b>Content warning:</b> the replies are period text and reproduce 19th-century attitudes on race, empire, religion, gender and class. Many user turns are deliberately abusive, sexual, bigoted or jailbreak attempts: the data exists to teach the model how to respond to them.</li>
+    <li><b>Licence:</b> CC BY-NC-SA 4.0, matching the most restrictive licensed source. The full source list, record format and citation are on the <a href="https://huggingface.co/datasets/tventurella/Mr.Chatterbox-SFT" target="_blank" rel="noopener noreferrer">dataset card</a>.</li>
+  </ul>
 </section>
 
 <section id="benchmarks">
